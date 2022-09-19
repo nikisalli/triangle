@@ -284,6 +284,8 @@ struct triangulateio {
   int *edgemarkerlist;            /* Not used with Voronoi diagram; out only */
   TRI_REAL *normlist;                /* Used only with Voronoi diagram; out only */
   int numberofedges;                                             /* Out only */
+
+  int hullsize;                                                  /* Out only */
 };
 
 void triangulate(char *, struct triangulateio *, struct triangulateio *,
