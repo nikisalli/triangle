@@ -16027,6 +16027,8 @@ char **argv;
     statistics(&m, &b);
   }
 
+  out->hullsize = m.hullsize;
+
 #ifndef REDUCED
   if (b.docheck) {
     checkmesh(&m, &b);
