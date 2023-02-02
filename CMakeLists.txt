@@ -4,8 +4,6 @@ project(triangle LANGUAGES C)
 option(BUILD_EXECUTABLE "Build triangle executable" OFF)
 option(BUILD_LIBRARY    "Build libtriangle library" ON)
 
-set_source_files_properties(triangle.c PROPERTIES LANGUAGE CXX)
-
 if(BUILD_LIBRARY)
   add_library(triangle STATIC triangle.c)
   target_compile_definitions(triangle PRIVATE -DTRILIBRARY -DANSI_DECLARATORS)
