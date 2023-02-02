@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.1)
-project(triangle)
+project(triangle LANGUAGES C)
 
 option(BUILD_EXECUTABLE "Build triangle executable" OFF)
 option(BUILD_LIBRARY    "Build libtriangle library" ON)
 
+set_source_files_properties(triangle.c PROPERTIES LANGUAGE CXX)
+
 if(BUILD_LIBRARY)
-  add_library(triangle STATIC triangle.cpp)
+  add_library(triangle STATIC triangle.c)
   target_compile_definitions(triangle PRIVATE -DTRILIBRARY -DANSI_DECLARATORS)
   if(WIN32)
     target_compile_definitions(triangle PRIVATE -DNO_TIMER)
@@ -16,7 +18,7 @@ endif()
 
 
 if(BUILD_EXECUTABLE)
-  add_executable(triangle_exec triangle.cpp)
+  add_executable(triangle_exec triangle.c)
   target_compile_definitions(triangle_exec PRIVATE -DANSI_DECLARATORS)
   if(WIN32)
     target_compile_definitions(triangle_exec PRIVATE -DNO_TIMER)

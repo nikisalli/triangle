@@ -345,12 +345,10 @@
 #define INT_PTR unsigned long long
 
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
-#include <string>
-#include <stdexcept>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #ifndef NO_TIMER
 #include <sys/time.h>
 #endif /* not NO_TIMER */
@@ -1422,7 +1420,9 @@ int status;
 #endif /* not ANSI_DECLARATORS */
 
 {
-  throw std::runtime_error("triexit("+std::to_string(status)+")");
+  // throw std::runtime_error("triexit("+std::to_string(status)+")");
+  printf("triexit(%d)\n", status);
+  exit(status);
 }
 
 #ifdef ANSI_DECLARATORS
